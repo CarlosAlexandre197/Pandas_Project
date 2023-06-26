@@ -1,13 +1,12 @@
 import pandas as pd
+import requests
 
-dataframe = pd.DataFrame()
+df = pd.read_excel('C:\Users\casas bahia\Desktop\Estudos\Planilha_Eu_Entrego.xlsm')
 
-vendas = {'data': ['26/05/2023', '27/05/2023'],
-          'valor': [500, 300],
-          'produto': ['malbec', 'lily'],
-          'quantidade': [50, 70],
-          }
-vendas_df = pd.DataFrame(vendas)
+url = 'https://sgi.e-boticario.com.br/Paginas/Inicializacao/AguardarAcao.aspx'
+response = requests.post(url, data=df.to_json())
 
-print(vendas)
-
+if response.status_code == 200:
+    print('Dados enviados com sucesso!')
+else:
+    print('Falha ao enviar os dados.')
