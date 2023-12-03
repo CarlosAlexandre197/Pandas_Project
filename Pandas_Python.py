@@ -1,4 +1,4 @@
-'''Utilizando a aplicação do Pandas'''
+'''Utilizando a aplicação do Pandas no Python'''
 
 import pandas as pd
 import requests
